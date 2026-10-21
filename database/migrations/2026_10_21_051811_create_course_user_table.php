@@ -20,5 +20,3 @@ $table->foreignId('course_id')->constrained()->cascadeOnDelete();
  Schema::dropIfExists('course_user');
  }
 };
-4.3 Models
-Replace the gener
