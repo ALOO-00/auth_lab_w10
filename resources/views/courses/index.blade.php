@@ -29,3 +29,4 @@
  </div>
  </div>
 </x-app-layout>
+{{-- Part C: gates, policy, roles Done!--}}
