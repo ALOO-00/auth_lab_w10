@@ -14,12 +14,18 @@
  <p><b>Owner:</b> {{ $course->owner->name }}</p>
  <p><b>Enrolled students:</b> {{ $course->students_count }}</p>
  <div class="flex items-center gap-4 pt-4">
+ @can('update', $course)
  <a href="{{ route('courses.edit', $course) }}" class="text-indigo-600">Edit</a>
+ @endcan
+ @can('delete', $course)
  <form method="POST" action="{{ route('courses.destroy', $course) }}">
  @csrf
 @method('DELETE')
  <x-danger-button>Delete</x-danger-button>
  </form>
+ @elsecan('update', $course)
+ <small class="text-gray-500">Cannot delete: students are enrolled</small>
+ @endcan
  <a href="{{ route('courses.index') }}" class="text-gray-600">Back to list</a>
  </div>
  </div>
